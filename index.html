@@ -11,10 +11,10 @@
 			}
 			
 			const customConsole = {};
-			customConsole.log = (...args) => alert(args);
-			customConsole.error = (...args) => alert(args);
-			customConsole.info = (...args) => alert(args);
-			customConsole.warn = (...args) => alert(args);
+			customConsole.log = (...args) => writeToLog(args);
+			customConsole.error = (...args) => writeToLog(args);
+			customConsole.info = (...args) => writeToLog(args);
+			customConsole.warn = (...args) => writeToLog(args);
 			window.console = customConsole;
 			var constraints = {
 				audio: false,
