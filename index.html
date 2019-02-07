@@ -22,6 +22,18 @@
 			}
 			
 			console.log('start getuserMedia()');
+			if (navigator.mediaDevices) {
+				console.log('- navigator.mediaDevices defined');
+			} else {
+				console.log('- navigator.mediaDevices not defined');
+			}
+			
+			if (navigator.mediaDevices.getUserMedia) {
+				console.log('- navigator.mediaDevices.getUserMedia defined');
+			} else {
+				console.log('- navigator.mediaDevices.getUserMedia not defined');
+			}
+			
 			
 			navigator.mediaDevices.getUserMedia(constraints)
 				.then(function(stream) {
