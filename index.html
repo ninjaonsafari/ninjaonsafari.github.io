@@ -3,13 +3,6 @@
 	<head>
 		<title>ninjaonsafari.github.io</title>
 		<script type="text/javascript">
-			
-			function writeToLog(args) {
-				const el = document.createElement('p');
-				el.innerText = args;
-				document.body.appendChild(el);
-			}
-			
 			var customConsole = {};
 			customConsole.log = function(args) {writeToLog(args)};
 			customConsole.error = function(args) {writeToLog(args)};
@@ -32,6 +25,13 @@
 				.catch(function(err) {
 					console.log('error', err);
 				});
+			
+			function writeToLog(args) {
+				const el = document.createElement('p');
+				el.innerText = args;
+				document.body.appendChild(el);
+			}
+			
 		</script>
 	</head>
 	<body>
