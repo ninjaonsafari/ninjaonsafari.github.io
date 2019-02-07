@@ -40,7 +40,7 @@
 					console.log('stream', stream);
 				})
 				.catch(function(err) {
-					console.log('error', err);
+					console.log(err.message);
 				});
 			
 			function writeToLog(args) {
