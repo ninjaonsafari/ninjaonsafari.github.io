@@ -8,49 +8,43 @@
 		
 		
 		<script type="text/javascript">
-			var customConsole = {};
-			customConsole.log = function(args) {writeToLog(args)};
-			customConsole.error = function(args) {writeToLog(args)};
-			customConsole.info = function(args) {writeToLog(args)};
-			customConsole.warn = function(args) {writeToLog(args)};
-			window.console = customConsole;
 			var constraints = {
 				audio: false,
 				video: true
 			}
 			
-			console.log('start getuserMedia()');
+			writeToLog('start getuserMedia()');
 			if (navigator.mediaDevices) {
-				console.log('- navigator.mediaDevices defined');
+				writeToLog('- navigator.mediaDevices defined');
 			} else {
-				console.log('- navigator.mediaDevices not defined');
+				writeToLog('- navigator.mediaDevices not defined');
 			}
 			
 			if (navigator.mediaDevices.getUserMedia) {
-				console.log('- navigator.mediaDevices.getUserMedia defined');
+				writeToLog('- navigator.mediaDevices.getUserMedia defined');
 			} else {
-				console.log('- navigator.mediaDevices.getUserMedia not defined');
+				writeToLog('- navigator.mediaDevices.getUserMedia not defined');
 			}
 			
 			var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 			if (getUserMedia) {
-				console.log('- webkitGetUserMedia or mozGetUserMedia defined');
+				writeToLog('- webkitGetUserMedia or mozGetUserMedia defined');
 			} else {
-				console.log('- webkitGetUserMedia or mozGetUserMedia not defined');
+				writeToLog('- webkitGetUserMedia or mozGetUserMedia not defined');
 			}
 			
 			
 			navigator.mediaDevices.getUserMedia(constraints)
 				.then(function(stream) {
-					console.log('stream', stream);
+					writeToLog('streaming');
 				})
 				.catch(function(err) {
-					console.log(err.name + ": " + err.message);
+					writeToLog(err.name + ": " + err.message);
 				});
 			
-			function writeToLog(args) {
+			function writeToLog(msg) {
 				const el = document.createElement('p');
-				el.innerText = args;
+				el.innerText = msg;
 				document.body.appendChild(el);
 			}
 			
