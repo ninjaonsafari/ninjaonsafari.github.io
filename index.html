@@ -3,6 +3,12 @@
 	<head>
 		<title>ninjaonsafari.github.io</title>
 		<script type="text/javascript">
+			var constraints = {
+				audio: false,
+				video: {
+					facingMode: 'user'
+				}
+			}
 			navigator.mediaDevices.getUserMedia(constraints)
 				.then(function(stream) {
 					console.log('stream', stream);
