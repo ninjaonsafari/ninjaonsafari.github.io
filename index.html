@@ -3,6 +3,19 @@
 	<head>
 		<title>ninjaonsafari.github.io</title>
 		<script type="text/javascript">
+			
+			var writeToLog = (...args) => {
+				const el = document.createElement('p');
+				el.innerText = args;
+				document.body.appendChild(el);
+			}
+			
+			const customConsole = {};
+			customConsole.log = (...args) => alert(args);
+			customConsole.error = (...args) => alert(args);
+			customConsole.info = (...args) => alert(args);
+			customConsole.warn = (...args) => alert(args);
+			window.console = customConsole;
 			var constraints = {
 				audio: false,
 				video: {
