@@ -16,31 +16,30 @@
 			writeToLog('start getuserMedia()');
 			if (navigator.mediaDevices) {
 				writeToLog('- navigator.mediaDevices defined');
+				
+				if (navigator.mediaDevices.getUserMedia) {
+					writeToLog('- navigator.mediaDevices.getUserMedia defined');
+				} else {
+					writeToLog('- navigator.mediaDevices.getUserMedia not defined');
+				}
 			} else {
 				writeToLog('- navigator.mediaDevices not defined');
-			}
+				
+				var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+				if (getUserMedia) {
+					writeToLog('- webkitGetUserMedia or mozGetUserMedia defined');
+				} else {
+					writeToLog('- webkitGetUserMedia or mozGetUserMedia not defined');
+				}
+			}		
 			
-			if (navigator.mediaDevices.getUserMedia) {
-				writeToLog('- navigator.mediaDevices.getUserMedia defined');
-			} else {
-				writeToLog('- navigator.mediaDevices.getUserMedia not defined');
-			}
-			
-			var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-			if (getUserMedia) {
-				writeToLog('- webkitGetUserMedia or mozGetUserMedia defined');
-			} else {
-				writeToLog('- webkitGetUserMedia or mozGetUserMedia not defined');
-			}
-			
-			
-			/*navigator.mediaDevices.getUserMedia(constraints)
+			navigator.mediaDevices.getUserMedia(constraints)
 				.then(function(stream) {
 					writeToLog('streaming');
 				})
 				.catch(function(err) {
 					writeToLog(err.name + ": " + err.message);
-				});*/
+				});
 			
 			function writeToLog(msg) {
 				const el = document.createElement('p');
