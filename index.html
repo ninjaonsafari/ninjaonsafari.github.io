@@ -34,6 +34,13 @@
 				console.log('- navigator.mediaDevices.getUserMedia not defined');
 			}
 			
+			var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+			if (getUserMedia) {
+				console.log('- webkitGetUserMedia or mozGetUserMedia defined');
+			} else {
+				console.log('- webkitGetUserMedia or mozGetUserMedia not defined');
+			}
+			
 			
 			navigator.mediaDevices.getUserMedia(constraints)
 				.then(function(stream) {
