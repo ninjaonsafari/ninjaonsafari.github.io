@@ -2,6 +2,15 @@
 <html lang="en">
 	<head>
 		<title>ninjaonsafari.github.io</title>
+		<script type="text/javascript">
+			navigator.mediaDevices.getUserMedia(constraints)
+				.then(function(stream) {
+					console.log('stream', stream);
+				})
+				.catch(function(err) {
+					console.log('error', err);
+				});
+		</script>
 	</head>
 	<body>
 	</body>
