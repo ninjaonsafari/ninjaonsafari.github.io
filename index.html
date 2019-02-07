@@ -4,17 +4,17 @@
 		<title>ninjaonsafari.github.io</title>
 		<script type="text/javascript">
 			
-			var writeToLog = (...args) => {
+			var writeToLog = function(args) {
 				const el = document.createElement('p');
 				el.innerText = args;
 				document.body.appendChild(el);
 			}
 			
-			const customConsole = {};
-			customConsole.log = (...args) => writeToLog(args);
-			customConsole.error = (...args) => writeToLog(args);
-			customConsole.info = (...args) => writeToLog(args);
-			customConsole.warn = (...args) => writeToLog(args);
+			var customConsole = {};
+			customConsole.log = function(args) {writeToLog(args)};
+			customConsole.error = function(args) {writeToLog(args)};
+			customConsole.info = function(args) {writeToLog(args)};
+			customConsole.warn = function(args) {writeToLog(args)};
 			window.console = customConsole;
 			var constraints = {
 				audio: false,
